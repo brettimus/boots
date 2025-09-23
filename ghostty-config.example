@@ -1,0 +1,22 @@
+theme = Rose Pine Moon
+
+font-family = "Monaspace Neon Var"
+# ss01: != and ===
+font-feature = "ss01"
+# ss02: <= and >=
+font-feature = "ss02"
+# ss03: -> and ~>
+font-feature = "ss03"
+# ss04: <> and </>
+font-feature = "ss04"
+# liga: //, ..., ||
+font-feature = "liga"
+
+font-size = 18.0
+font-thicken = true
+
+# Start from the dev dir
+working-directory = "/Users/me/dev-dir"
+
+# Any NEW window/tab from an existing Ghostty terminal inherits its CWD:
+window-inherit-working-directory = true

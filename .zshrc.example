@@ -1,0 +1,31 @@
+# mem: zshrc = interactive shell candy (prompt, aliases, completions, keybinds)
+
+# zsh prompt setup with git support
+setopt prompt_subst
+
+# Simple git branch function that works everywhere
+function git_branch_info() {
+    if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+        local branch=$(git symbolic-ref --short HEAD 2>/dev/null || git describe --tags --exact-match 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
+        if [[ -n "$branch" ]]; then
+            echo "%F{magenta}[${branch}]%f"
+        fi
+    fi
+}
+
+# username shortener (optional)
+short_user=$USER; [[ $USER == "brettbeutell" ]] && short_user="bb"
+
+PROMPT="%F{cyan}${short_user}%f %F{yellow}%~%f \$(git_branch_info)
+%F{green}❯%f "
+
+# TODO - still fiddling with RPROMPT
+# setopt prompt_subst
+# RPROMPT='%(?..%F{red}✗ %?%f) $([[ $SECONDS -gt 1 ]] && echo "%F{blue}${SECONDS}s%f")'
+
+# set aliases
+source ~/boots/aliases.sh
+
+# bun completions (temporarily commented out because it was causing issues with my PROMPT)
+# [ -s "/Users/brettbeutell/.bun/_bun" ] && source "/Users/brettbeutell/.bun/_bun"
+
