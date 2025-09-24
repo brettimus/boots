@@ -1,5 +1,9 @@
 # mem: zshrc = interactive shell candy (prompt, aliases, completions, keybinds)
 
+# git completion setup - expects to run after homebrew shellenv
+autoload -Uz compinit
+compinit
+
 # zsh prompt setup with git support
 setopt prompt_subst
 
