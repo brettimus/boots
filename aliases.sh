@@ -1,5 +1,18 @@
 # shell aliases
 alias l.='ls -d .*'
+alias ll='ls -lh'              # Long format with human-readable sizes
+alias la='ls -lAh'             # Long format, all files including hidden
+alias lt='ls -lth'             # Sort by modification time, newest first
+alias lS='ls -lSh'             # Sort by size, largest first
+alias l='ls -CF'               # Compact format with indicators
+
+alias rm='rm -i'               # Confirm before deleting
+alias cp='cp -i'               # Confirm before overwriting
+alias mv='mv -i'               # Confirm before overwriting
+alias mkdir='mkdir -p'         # Create parent directories as needed
+
+alias ....='cd ../../..'
+
 
 # git aliases
 alias gita='git add .'
