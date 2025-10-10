@@ -1,3 +1,6 @@
+# shell aliases
+alias l.='ls -d .*'
+
 # git aliases
 alias gita='git add .'
 alias gitc='git commit'
