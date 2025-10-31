@@ -1,5 +1,8 @@
 # mem: zshrc = interactive shell candy (prompt, aliases, completions, keybinds)
 
+# Treat -, /, . as boundaries (like on macos)
+export WORDCHARS='*?[]~=&;!#$%^(){}<>'
+
 # git completion setup - expects to run after homebrew shellenv
 autoload -Uz compinit
 compinit
