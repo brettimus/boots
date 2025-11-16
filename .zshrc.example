@@ -88,6 +88,48 @@ function auto_select_theme() {
 # Run the auto-selection
 auto_select_theme
 
+# URL-encode helper function for Bear x-callback URLs
+urlencode() {
+  python3 -c "import sys, urllib.parse; print(urllib.parse.quote(sys.stdin.read(), safe=''))"
+}
+
+# Open markdown file in Bear with #terminal tag
+function bear() {
+  if [ -z "$1" ]; then
+    echo "Usage: bear path/to/file.md" >&2
+    return 1
+  fi
+
+  local file="$1"
+
+  if [ ! -f "$file" ]; then
+    echo "No such file: $file" >&2
+    return 1
+  fi
+
+  local title
+  title=$(basename "$file")
+
+  local encoded_title
+  encoded_title=$(printf %s "$title" | urlencode)
+
+  local encoded_text
+  encoded_text=$(cat "$file" | urlencode)
+
+  # Debug: show what we're sending (first 100 chars of encoded text)
+  # echo "Title: $title" >&2
+  # echo "Encoded title length: ${#encoded_title}" >&2
+  # echo "Encoded text length: ${#encoded_text}" >&2
+  # echo "First 100 chars of encoded text: ${encoded_text:0:100}..." >&2
+
+  local url="bear://x-callback-url/create?title=${encoded_title}&text=${encoded_text}&tags=terminal"
+
+  # Debug: show URL length
+  # echo "URL length: ${#url}" >&2
+
+  open "$url"
+}
+
 # bun completions (temporarily commented out because it was causing issues with my PROMPT)
 # [ -s "/Users/brettbeutell/.bun/_bun" ] && source "/Users/brettbeutell/.bun/_bun"
 
