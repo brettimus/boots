@@ -13,6 +13,8 @@ alias mkdir='mkdir -p'         # Create parent directories as needed
 
 alias ....='cd ../../..'
 
+# Claude after two whiskeys and a horse named Trouble
+alias clyde='claude --dangerously-skip-permissions'
 
 # git aliases
 alias gita='git add .'
