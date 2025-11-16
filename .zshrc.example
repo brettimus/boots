@@ -33,6 +33,61 @@ PROMPT="%F{cyan}${short_user}%f %F{yellow}%~%f \$(git_branch_info)
 # set aliases
 source ~/boots/aliases.sh
 
+# Auto-cycle through themes on shell startup (different from last time)
+function auto_select_theme() {
+    # Skip if running inside Cursor/VS Code (they have their own theme system)
+    if [[ -n "$VSCODE_PID" ]] || [[ -n "$VSCODE_INJECTION" ]] || [[ "$TERM_PROGRAM" == "vscode" ]] || [[ "$TERM_PROGRAM" == "cursor" ]]; then
+        return
+    fi
+    
+    local themes=(
+        "adventure-time"
+        "github"
+        "toychest"
+        "dracula"
+        "yellow"
+        "rose-pine-moon"
+        "rose-pine-dawn"
+        "solarized-light"
+        "solarized-dark"
+    )
+    
+    local last_theme_file="$HOME/.last-theme"
+    local last_theme=""
+    local current_index=1  # Start with first theme if no last theme exists
+    
+    # Read last theme if file exists
+    if [[ -f "$last_theme_file" ]]; then
+        last_theme=$(cat "$last_theme_file")
+        
+        # Find the index of the last theme
+        for i in {1..${#themes[@]}}; do
+            if [[ "${themes[$i]}" == "$last_theme" ]]; then
+                current_index=$i
+                break
+            fi
+        done
+        
+        # Move to next theme (wrap around if at end)
+        current_index=$((current_index + 1))
+        if [[ $current_index -gt ${#themes[@]} ]]; then
+            current_index=1
+        fi
+    fi
+    
+    # Select the theme at current index
+    local selected_theme="${themes[$current_index]}"
+    
+    # Apply the theme
+    source "$HOME/boots/theme-${selected_theme}.sh"
+    
+    # Save for next time
+    echo "$selected_theme" > "$last_theme_file"
+}
+
+# Run the auto-selection
+auto_select_theme
+
 # bun completions (temporarily commented out because it was causing issues with my PROMPT)
 # [ -s "/Users/brettbeutell/.bun/_bun" ] && source "/Users/brettbeutell/.bun/_bun"
 
