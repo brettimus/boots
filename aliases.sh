@@ -11,6 +11,7 @@ alias cp='cp -i'               # Confirm before overwriting
 alias mv='mv -i'               # Confirm before overwriting
 alias mkdir='mkdir -p'         # Create parent directories as needed
 
+alias ...='cd ../..'
 alias ....='cd ../../..'
 
 # Claude after two whiskeys and a horse named Trouble
