@@ -78,6 +78,13 @@ function auto_select_theme() {
     # Select the theme at current index
     local selected_theme="${themes[$current_index]}"
     
+    # Skip if theme is "rose-pine-moon" (already default)
+    if [[ "$selected_theme" == "rose-pine-moon" ]]; then
+        # Still save for next time to continue the cycle
+        echo "$selected_theme" > "$last_theme_file"
+        return
+    fi
+    
     # Apply the theme
     source "$HOME/boots/theme-${selected_theme}.sh"
     
