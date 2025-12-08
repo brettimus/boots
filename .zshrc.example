@@ -33,6 +33,9 @@ PROMPT="%F{cyan}${short_user}%f %F{yellow}%~%f \$(git_branch_info)
 # set aliases
 source ~/boots/aliases.sh
 
+# add utils
+source ~/boots/utils.sh
+
 # Auto-cycle through themes on shell startup (different from last time)
 function auto_select_theme() {
     # Skip if running inside Cursor/VS Code (they have their own theme system)
