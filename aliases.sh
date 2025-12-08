@@ -6,9 +6,10 @@ alias lt='ls -lth'             # Sort by modification time, newest first
 alias lS='ls -lSh'             # Sort by size, largest first
 alias l='ls -CF'               # Compact format with indicators
 
-alias rm='rm -i'               # Confirm before deleting
-alias cp='cp -i'               # Confirm before overwriting
-alias mv='mv -i'               # Confirm before overwriting
+# Commented out because it messes up Claude Code with the confirm
+# alias rm='rm -i'               # Confirm before deleting
+# alias cp='cp -i'               # Confirm before overwriting
+# alias mv='mv -i'               # Confirm before overwriting
 alias mkdir='mkdir -p'         # Create parent directories as needed
 
 alias ...='cd ../..'
