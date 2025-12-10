@@ -26,14 +26,14 @@ cset 14 d7/82/7e
 cset 15 57/52/79
 
 # Background color
-echo -e "\033]11;rgb:fa/f4/ed\007"
+echo -ne "\033]11;rgb:fa/f4/ed\007"
 
 # Foreground (text) color
-echo -e "\033]10;rgb:57/52/79\007"
+echo -ne "\033]10;rgb:57/52/79\007"
 
 # Cursor color
-echo -e "\033]12;rgb:57/52/79\007"
+echo -ne "\033]12;rgb:57/52/79\007"
 
 # Selection background & foreground
-echo -e "\033]17;rgb:df/da/d9\007"  # selection-background
-echo -e "\033]19;rgb:57/52/79\007"  # selection-foreground
+echo -ne "\033]17;rgb:df/da/d9\007"  # selection-background
+echo -ne "\033]19;rgb:57/52/79\007"  # selection-foreground

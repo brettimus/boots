@@ -26,14 +26,14 @@ cset 14 c8/fa/f4
 cset 15 f6/f5/fb
 
 # Set background color
-echo -e "\033]11;rgb:1f/1d/45\007"
+echo -ne "\033]11;rgb:1f/1d/45\007"
 
 # Set foreground color
-echo -e "\033]10;rgb:f8/dc/c0\007"
+echo -ne "\033]10;rgb:f8/dc/c0\007"
 
 # Set cursor color
-echo -e "\033]12;rgb:ef/bf/38\007"
+echo -ne "\033]12;rgb:ef/bf/38\007"
 
 # Optionally, include selection background and foreground colors
-echo -e "\033]17;rgb:70/6b/4e\007"  # Selection background
-echo -e "\033]19;rgb:f3/d9/c4\007"  # Selection foreground
+echo -ne "\033]17;rgb:70/6b/4e\007"  # Selection background
+echo -ne "\033]19;rgb:f3/d9/c4\007"  # Selection foreground

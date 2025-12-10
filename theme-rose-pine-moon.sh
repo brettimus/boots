@@ -26,14 +26,14 @@ cset 14 d7/82/7e
 cset 15 57/52/79
 
 # Set background color
-echo -e "\033]11;rgb:faf4ed\007"
+echo -ne "\033]11;rgb:faf4ed\007"
 
 # Set foreground color
-echo -e "\033]10;rgb:57/52/79\007"
+echo -ne "\033]10;rgb:57/52/79\007"
 
 # Set cursor color
-echo -e "\033]12;rgb:98/93/a5\007"
+echo -ne "\033]12;rgb:98/93/a5\007"
 
 # Optionally, you can include selection background and foreground colors if your terminal supports them
-echo -e "\033]17;rgb:ee/e9/e6\007"  # Selection background
-echo -e "\033]19;rgb:57/52/79\007"  # Selection foreground
+echo -ne "\033]17;rgb:ee/e9/e6\007"  # Selection background
+echo -ne "\033]19;rgb:57/52/79\007"  # Selection foreground
