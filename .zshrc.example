@@ -53,6 +53,8 @@ function auto_select_theme() {
         "rose-pine-dawn"
         "solarized-light"
         "solarized-dark"
+        "12bit-rainbow"
+        "aardvark-blue"
     )
     
     local last_theme_file="$HOME/.last-theme"
