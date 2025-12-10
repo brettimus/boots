@@ -28,3 +28,5 @@ I made most of the themes in ChatGPT looooong ago. I had a prompt that gave an e
 I would then give the name of another theme (or just copy it in) and ask for an adapted script.
 
 Obviously you could now do this in Cursor or Claude Code quite easily.
+
+To make it work in auto_select_theme, you need to add the name of the theme to the list it uses to cycle.
