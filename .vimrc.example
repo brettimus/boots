@@ -1,0 +1,25 @@
+" Syntax highlighting and filetype detection
+syntax on
+filetype plugin indent on
+
+" Line numbers
+set number
+
+" Sensible defaults
+set backspace=indent,eol,start  " Make backspace work normally
+set ruler                       " Show cursor position
+set showcmd                     " Show incomplete commands
+set wildmenu                    " Command-line completion
+set incsearch                   " Incremental search
+set hlsearch                    " Highlight search results
+
+" Indentation
+set tabstop=4                   " Tab = 4 spaces visually
+set shiftwidth=4                " Indent = 4 spaces
+set expandtab                   " Use spaces instead of tabs
+set autoindent                  " Copy indent from current line
+
+" Quality of life
+set scrolloff=3                 " Keep 3 lines visible above/below cursor
+set mouse=a                     " Enable mouse in all modes
+set clipboard=unnamed           " Use system clipboard (macOS)
