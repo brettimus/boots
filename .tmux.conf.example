@@ -1,0 +1,58 @@
+# Enable mouse support
+set -g mouse on
+
+# Increase scrollback buffer
+set -g history-limit 50000
+
+# Better colors. tmux-256color has the right caps for apps inside tmux
+# (modifier-arrow keys, etc.); the Tc override advertises 24-bit color.
+set -g default-terminal "tmux-256color"
+set -ga terminal-overrides ",*:Tc"
+
+# Start windows and panes at 1, not 0
+set -g base-index 1
+setw -g pane-base-index 1
+
+# Faster escape time (important for vim)
+set -sg escape-time 10
+
+# Tell tmux to use terminal clipboard (OSC 52)
+# Works with Ghostty natively - no need for pbcopy
+set -g set-clipboard on
+
+# Allow OSC sequences to pass through (for Ghostty URL clicking, images, etc)
+set -g allow-passthrough on
+
+# Pass through extended/modified keys (e.g. alt+enter, shift+arrows) to apps
+# inside tmux. xterm (CSI u) format has the widest app support.
+set -g extended-keys on
+set -g extended-keys-format xterm
+set -as terminal-features ',*:extkeys'
+
+# Report focus gained/lost to inner apps (e.g. for vim autoread, pi, etc.)
+set -g focus-events on
+
+# Vim-style copy mode
+setw -g mode-keys vi
+bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel
+bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel
+
+# Preserve last-window on Shift+Tab (before rebinding L)
+bind BTab last-window
+
+# Vim-style pane navigation
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# Vim-style pane resizing
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+# Save and restore sessions, windows, pane layouts, and working directories.
+# Install with: git clone https://github.com/tmux-plugins/tmux-resurrect ~/.tmux/plugins/tmux-resurrect
+# Save: prefix + Ctrl-s. Restore: prefix + Ctrl-r.
+run-shell ~/.tmux/plugins/tmux-resurrect/resurrect.tmux
