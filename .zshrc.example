@@ -36,6 +36,10 @@ source ~/boots/aliases.sh
 # add utils
 source ~/boots/utils.sh
 
+# Optional shell integrations
+command -v direnv >/dev/null && eval "$(direnv hook zsh)"
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+
 # Auto-cycle through themes on shell startup (different from last time)
 function auto_select_theme() {
     # Skip if running inside Cursor/VS Code (they have their own theme system)
@@ -144,4 +148,3 @@ function bear() {
 
 # bun completions (temporarily commented out because it was causing issues with my PROMPT)
 # [ -s "/Users/brettbeutell/.bun/_bun" ] && source "/Users/brettbeutell/.bun/_bun"
-

@@ -31,6 +31,7 @@ alias gits='git status'
 alias gitb='git branch'
 alias gpo='git push origin'
 alias gitfix='git add -A && git commit --amend --no-edit'
+alias gsmp='git switch main && git pull && git switch -'
 
 # ghostty themes
 alias adventure-time='source ~/boots/theme-adventure-time.sh'
