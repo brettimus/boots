@@ -26,7 +26,9 @@ set -g allow-passthrough on
 # Pass through extended/modified keys (e.g. alt+enter, shift+arrows) to apps
 # inside tmux. xterm (CSI u) format has the widest app support.
 set -g extended-keys on
-set -g extended-keys-format xterm
+# tmux 3.5 added explicit extended-key output format selection. Older versions
+# already use the compatible behavior but reject this option outright.
+if-shell -F '#{>=:#{version},3.5}' 'set -g extended-keys-format xterm'
 set -as terminal-features ',*:extkeys'
 
 # Report focus gained/lost to inner apps (e.g. for vim autoread, pi, etc.)
@@ -53,6 +55,14 @@ bind -r K resize-pane -U 5
 bind -r L resize-pane -R 5
 
 # Save and restore sessions, windows, pane layouts, and working directories.
-# Install with: git clone https://github.com/tmux-plugins/tmux-resurrect ~/.tmux/plugins/tmux-resurrect
-# Save: prefix + Ctrl-s. Restore: prefix + Ctrl-r.
-run-shell ~/.tmux/plugins/tmux-resurrect/resurrect.tmux
+# Run ~/boots/install-tmux-plugins.sh once before loading this config.
+# Manual save: prefix + Ctrl-s. Manual restore: prefix + Ctrl-r.
+set -g @resurrect-dir "$HOME/.local/share/tmux/resurrect"
+set -g @continuum-save-interval "10"
+
+# Keep startup deterministic: snapshots are automatic, restoration is manual.
+set -g @continuum-restore "off"
+
+# Load directly; no plugin manager is required.
+run-shell "$HOME/.tmux/plugins/tmux-resurrect/resurrect.tmux"
+run-shell "$HOME/.tmux/plugins/tmux-continuum/continuum.tmux"

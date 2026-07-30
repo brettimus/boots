@@ -27,14 +27,21 @@ Copy `.tmux.conf.example` to `~/.tmux.conf`. Includes:
 - Vim-style copy mode
 - OSC 52 clipboard support (works with Ghostty)
 - Session and layout persistence with [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect)
+- Automatic snapshots every 10 minutes with [tmux-continuum](https://github.com/tmux-plugins/tmux-continuum)
 
-Install tmux-resurrect before loading the config:
+Install both plugins before loading the config:
 
 ```bash
-git clone https://github.com/tmux-plugins/tmux-resurrect ~/.tmux/plugins/tmux-resurrect
+~/boots/install-tmux-plugins.sh
+tmux source-file ~/.tmux.conf
 ```
 
-Save with `prefix + Ctrl-s` and restore with `prefix + Ctrl-r`.
+The installer and config use paths below `$HOME`; there are no host-specific
+paths or assumptions. Snapshots are written to
+`~/.local/share/tmux/resurrect`, with old snapshots pruned by tmux-resurrect.
+
+Save with `prefix + Ctrl-s` and restore with `prefix + Ctrl-r`. Startup restore
+is intentionally disabled so an old snapshot is never applied unexpectedly.
 
 ## Wiring up Aliases
 
