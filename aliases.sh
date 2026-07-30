@@ -18,6 +18,12 @@ alias ....='cd ../../..'
 # Claude after two whiskeys and a horse named Trouble
 alias clyde='claude --dangerously-skip-permissions'
 
+# Party Codex
+alias yodex='codex --dangerously-bypass-approvals-and-sandbox'
+
+# Geminiolo
+alias gioia='gemini --approval-mode yolo'
+
 # git aliases
 alias gita='git add .'
 alias gitc='git commit'
