@@ -10,7 +10,20 @@ cp .zshrc.example ~/.zshrc
 cp .zprofile.example ~/.zprofile
 cp .vimrc.example ~/.vimrc
 cp .tmux.conf.example ~/.tmux.conf
+mkdir -p ~/.claude ~/.codex
+cp .claude-CLAUDE.md.example ~/.claude/CLAUDE.md
+cp .codex-AGENTS.md.example ~/.codex/AGENTS.md
 ```
+
+## AI coding agents
+
+The Claude Code and Codex files set a personal communication preference for
+all projects:
+
+> Use ASD-STE100 Simplified Technical English to report to me when discussing technical work.
+
+Claude Code reads `~/.claude/CLAUDE.md`. Codex reads
+`~/.codex/AGENTS.md`. Start a new session after you change either file.
 
 ## Vim
 
