@@ -1,3 +1,24 @@
+" ============================================================================
+" PLUGIN SETUP (vim-plug)
+" ============================================================================
+" To install plugins on a new machine:
+"   1. Install vim-plug:
+"      mkdir -p ~/.vim/autoload
+"      curl -fLo ~/.vim/autoload/plug.vim \
+"        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"   2. Copy this file to ~/.vimrc
+"   3. Open vim and run :PlugInstall
+"
+" If you see "Unknown function: plug#begin", vim-plug isn't loaded.
+" ============================================================================
+
+call plug#begin('~/.vim/plugged')
+
+" Comment/uncomment with gcc (line) or gc (motion/selection)
+Plug 'tpope/vim-commentary'
+
+call plug#end()
+
 " Syntax highlighting and filetype detection
 syntax on
 filetype plugin indent on
@@ -23,3 +44,7 @@ set autoindent                  " Copy indent from current line
 set scrolloff=3                 " Keep 3 lines visible above/below cursor
 set mouse=a                     " Enable mouse in all modes
 set clipboard=unnamed           " Use system clipboard (macOS)
+
+" Tmux integration
+" Yank to tmux buffer: yank text, then :YankToTmux to paste in other panes
+command! YankToTmux call system('tmux load-buffer -', @")
