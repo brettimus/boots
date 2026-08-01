@@ -12,7 +12,7 @@ font-feature = "ss04"
 # liga: //, ..., ||
 font-feature = "liga"
 
-font-size = 18.0
+font-size = 14.0
 font-thicken = true
 
 # Start from the dev dir

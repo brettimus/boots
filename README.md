@@ -25,6 +25,36 @@ all projects:
 Claude Code reads `~/.claude/CLAUDE.md`. Codex reads
 `~/.codex/AGENTS.md`. Start a new session after you change either file.
 
+## SSH agent forwarding
+
+Agent forwarding lets Git commands on a trusted remote Mac use an SSH key from
+your local agent. It avoids unlocking the remote login keychain or copying a
+private key to the remote host.
+
+Enable it only for specific trusted hosts in `~/.ssh/config`:
+
+```sshconfig
+Host brettbook brett-mini
+  ForwardAgent yes
+```
+
+Before you connect, make sure the local agent has the required key:
+
+```bash
+ssh-add -l
+```
+
+On macOS, load a key and store its passphrase in the local login keychain with:
+
+```bash
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+```
+
+After you connect, `echo "$SSH_AUTH_SOCK"` on the remote host must print a
+socket path. A compromised remote host can use the forwarded agent while the
+SSH connection is open, but it cannot copy the private key from the agent. Do
+not enable `ForwardAgent` globally with `Host *`.
+
 ## Vim
 
 Copy `.vimrc.example` to `~/.vimrc`. Enables syntax highlighting, line numbers, and sensible defaults.
