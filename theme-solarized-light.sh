@@ -15,7 +15,7 @@ cset 3 b5/89/00
 cset 4 26/8b/d2
 cset 5 d3/36/82
 cset 6 2a/a1/98
-cset 7 ee/e8/d5
+cset 7 bb/b5/a2
 cset 8 00/2b/36
 cset 9 cb/4b/16
 cset 10 58/6e/75
@@ -36,6 +36,4 @@ echo -ne "\033]12;rgb:65/7b/83\007"
 
 # Optionally, include selection background and foreground colors
 echo -ne "\033]17;rgb:ee/e8/d5\007"  # Selection background
-echo -ne "\033]19;rgb:07/36/42\007"  # Selection foreground
-
-
+echo -ne "\033]19;rgb:58/6e/75\007"  # Selection foreground

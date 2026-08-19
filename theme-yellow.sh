@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# NOTE - I forgot the actual theme name, but it was a yellow bg
+# Man Page (light, yellow bg) - https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/ghostty/Man%20Page
 
 # Function to set palette colors
 function cset() {
@@ -17,14 +17,14 @@ cset 3 99/99/00
 cset 4 00/00/b2
 cset 5 b2/00/b2
 cset 6 00/a6/b2
-cset 7 cc/cc/cc
+cset 7 b2/b2/b2
 cset 8 66/66/66
 cset 9 e5/00/00
-cset 10 00/d9/00
-cset 11 e5/e5/00
+cset 10 00/cc/00
+cset 11 bf/bf/00
 cset 12 00/00/ff
 cset 13 e5/00/e5
-cset 14 00/e5/e5
+cset 14 00/cb/cb
 cset 15 e5/e5/e5
 
 # Set background color

@@ -86,6 +86,23 @@ paths or assumptions. Snapshots are written to
 Save with `prefix + Ctrl-s` and restore with `prefix + Ctrl-r`. Startup restore
 is intentionally disabled so an old snapshot is never applied unexpectedly.
 
+## Herdr (nested tmux)
+
+Herdr wraps an inner tmux, and both default to `Ctrl-b`. Herdr's default
+`close_pane = "prefix+x"` fires on the first `Ctrl-b x`, so a kill-pane
+meant for tmux instead kills the Herdr pane (no confirmation). Rebinding
+`close_pane` onto `prefix+shift+x` leaves plain `prefix+x` free for tmux.
+
+```bash
+cp herdr-config.example ~/.config/herdr/config.toml
+herdr config check          # validate
+herdr server reload-config   # apply to the running server
+```
+
+`prefix+shift+x` is Herdr's default `close_tab`, so the example also moves
+`close_tab` to `prefix+ctrl+x`. See `HOW-HERDR-TMUX-WORKS.md` for the full
+default keybinding table, the alternatives, and how to test the rebind.
+
 ## Wiring up Aliases
 
 Import the aliases (with appropriate path) in .zshrc

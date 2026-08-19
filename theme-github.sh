@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# GitHub Light Default (light) - https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/ghostty/GitHub%20Light%20Default
+
 # Function to set palette colors
 function cset() {
   ANSI=$1

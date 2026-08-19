@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/ghostty/Builtin%20Solarized%20Dark
+# https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/ghostty/iTerm2%20Solarized%20Dark
 
 # Function to set ANSI color palette entries
 function cset() {
@@ -18,7 +18,7 @@ cset 4 26/8b/d2
 cset 5 d3/36/82
 cset 6 2a/a1/98
 cset 7 ee/e8/d5
-cset 8 00/2b/36
+cset 8 33/5e/69
 cset 9 cb/4b/16
 cset 10 58/6e/75
 cset 11 65/7b/83
