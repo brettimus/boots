@@ -49,10 +49,8 @@ function auto_select_theme() {
     
     local themes=(
         "adventure-time"
-        "github"
         "toychest"
         "dracula"
-        "yellow"
         "rose-pine-moon"
         "rose-pine-dawn"
         "solarized-light"
