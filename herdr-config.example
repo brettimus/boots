@@ -1,0 +1,30 @@
+# Herdr config  ->  ~/.config/herdr/config.toml
+#
+# Why this file exists: Herdr wraps an inner tmux that ALSO uses Ctrl-b.
+#
+#   Herdr default:  close_pane = "prefix+x"   <- fires on the FIRST Ctrl-b x
+#   tmux:           kill-pane  = prefix x      <- needs Ctrl-b Ctrl-b x to reach
+#
+# So typing Ctrl-b x to kill a tmux pane instead kills the Herdr pane (no
+# confirmation). Rebind Herdr's close_pane onto the deliberate capital-X
+# chord so plain prefix+x is left free for tmux.
+#
+# prefix+shift+x is Herdr's default close_tab, so close_tab moves to
+# prefix+ctrl+x to keep both actions reachable.
+#
+# Verified against herdr 0.7.5 (stable). The keybinding schema moves between
+# versions; run `herdr config check` after editing and `herdr server
+# reload-config` to apply to a running server.
+
+onboarding = false
+
+[keys]
+# Default prefix is "ctrl+b", same as tmux. Left unchanged on purpose: the
+# only chord that collides is the close_pane binding below.
+# prefix = "ctrl+b"
+
+# Capital X = a deliberate two-key chord, not a stray tmux kill-pane.
+close_pane = "prefix+shift+x"
+
+# Moved off prefix+shift+x (now used by close_pane). Press Ctrl-b, then Ctrl-x.
+close_tab = "prefix+ctrl+x"
