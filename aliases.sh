@@ -33,6 +33,10 @@ alias gpo='git push origin'
 alias gitfix='git add -A && git commit --amend --no-edit'
 alias gsmp='git switch main && git pull && git switch -'
 
+# ffmpeg: compress a QuickTime screen recording (.mov -> smaller .mp4)
+# Usage: convert-recording input.mov [output.mp4]
+alias convert-recording='~/boots/convert-screen-recording.sh'
+
 # ghostty themes
 alias adventure-time='source ~/boots/theme-adventure-time.sh'
 alias github='source ~/boots/theme-github.sh'
