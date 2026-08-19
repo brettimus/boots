@@ -49,5 +49,5 @@ alias solarized-light='source ~/boots/theme-solarized-light.sh'
 alias solarized-dark='source ~/boots/theme-solarized-dark.sh' # kinda foresty
 alias 12bit-rainbow='source ~/boots/theme-12bit-rainbow.sh'
 alias aardvark-blue='source ~/boots/theme-aardvark-blue.sh'
-alias rose=rose-pine-dawn
+alias rose=rose-pine-moon
 alias solarized=solarized-dark

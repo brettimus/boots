@@ -52,7 +52,6 @@ function auto_select_theme() {
         "toychest"
         "dracula"
         "rose-pine-moon"
-        "rose-pine-dawn"
         "solarized-dark"
         "12bit-rainbow"
         "aardvark-blue"
