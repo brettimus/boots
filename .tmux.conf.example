@@ -24,11 +24,12 @@ set -g set-clipboard on
 set -g allow-passthrough on
 
 # Pass through extended/modified keys (e.g. alt+enter, shift+arrows) to apps
-# inside tmux. xterm (CSI u) format has the widest app support.
+# inside tmux. csi-u is the modern, unambiguous encoding (Kitty's protocol is
+# a superset). xterm (modifyOtherKeys / CSI ~) also works but is flakier.
 set -g extended-keys on
 # tmux 3.5 added explicit extended-key output format selection. Older versions
 # already use the compatible behavior but reject this option outright.
-if-shell -F '#{>=:#{version},3.5}' 'set -g extended-keys-format xterm'
+if-shell -F '#{>=:#{version},3.5}' 'set -g extended-keys-format csi-u'
 set -as terminal-features ',*:extkeys'
 
 # Report focus gained/lost to inner apps (e.g. for vim autoread, pi, etc.)
