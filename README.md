@@ -25,6 +25,28 @@ all projects:
 Claude Code reads `~/.claude/CLAUDE.md`. Codex reads
 `~/.codex/AGENTS.md`. Start a new session after you change either file.
 
+## GNU `timeout` on macOS
+
+macOS does not include the GNU `timeout` command. Install GNU Coreutils with
+Homebrew, and link only `timeout` into the user-local command directory:
+
+```bash
+brew install coreutils
+mkdir -p ~/.local/bin
+ln -s "$(brew --prefix coreutils)/libexec/gnubin/timeout" ~/.local/bin/timeout
+```
+
+This setup does not put all GNU Coreutils commands on `PATH`. Make sure that
+`~/.local/bin` is on `PATH`, and test the timeout result:
+
+```bash
+timeout 0.1 sleep 1
+timeout_code=$?
+echo "$timeout_code"
+```
+
+The expected exit code is `124`.
+
 ## SSH agent forwarding
 
 Agent forwarding lets Git commands on a trusted remote Mac use an SSH key from
